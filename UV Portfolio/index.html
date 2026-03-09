@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Udit Verma | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <nav>
+        <div class="logo">&lt;UV/&gt;</div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="hero" class="section">
+        <div class="hero-content">
+            <h1 class="glitch" data-text="UDIT VERMA">UDIT VERMA</h1>
+            <div class="role-demo-container"></div>
+            <div class="btn-group">
+                <a href="#projects" class="btn primary-btn">View My Work</a>
+                <a href="#contact" class="btn secondary-btn">Contact Me</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="skills" class="section">
+        <h2 class="section-title" data-text="My Arsenal">My Arsenal</h2>
+        <div class="skills-container wrapper">
+            <div class="skill-tag" style="--i:1;"><i class="devicon-python-plain colored"></i> Python</div>
+            <div class="skill-tag" style="--i:2;"><i class="devicon-javascript-plain colored"></i> JavaScript</div>
+            <div class="skill-tag" style="--i:3;"><i class="devicon-html5-plain colored"></i> HTML</div>
+            <div class="skill-tag" style="--i:4;"><i class="devicon-css3-plain colored"></i> CSS</div>
+            <div class="skill-tag" style="--i:5;"><i class="devicon-flask-original colored"></i> Flask</div>
+            <div class="skill-tag" style="--i:6;"><i class="devicon-wordpress-plain colored"></i> WordPress</div>
+            <div class="skill-tag" style="--i:7;"><i class="devicon-azuresqldatabase-plain colored"></i> SQL</div>
+            <div class="skill-tag" style="--i:8;"><i class="devicon-sqlite-plain colored"></i> SQLite</div>
+            <div class="skill-tag" style="--i:9;"><i class="devicon-git-plain colored"></i> Git</div>
+            <div class="skill-tag" style="--i:10;"><i class="devicon-github-original colored"></i> GitHub</div>
+            <div class="skill-tag" style="--i:11;"><i class="fa-brands fa-microsoft colored"></i> MS Office</div>
+        </div>
+    </section>
+
+    <section id="projects" class="section wrapper">
+        <h2 class="section-title" data-text="Featured Projects">Featured Projects</h2>
+        <div class="projects-grid">
+            
+            <div class="project-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
+                <div class="project-animation maze-anim">
+                    <div class="maze-scene">
+                        <div class="maze-floor"></div>
+                        <div class="maze-walls">
+                            <div class="wall wall-1"><div class="face front"></div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div></div>
+                            <div class="wall wall-2"><div class="face front"></div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div></div>
+                            <div class="wall wall-3"><div class="face front"></div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div></div>
+                            <div class="wall wall-4"><div class="face front"></div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div></div>
+                        </div>
+                        <div class="maze-path-trail"></div>
+                        <div class="maze-player-core">
+                            <div class="player-glow"></div>
+                        </div>
+                        <div class="maze-goal-cube">
+                            <div class="goal-face front"></div><div class="goal-face back"></div><div class="goal-face right"></div><div class="goal-face left"></div><div class="goal-face top"></div><div class="goal-face bottom"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Maze Runner</h3>
+                    <p>Algorithmic Maze Game with Leaderboard</p>
+                    <a href="https://maze-runner-ssv8.onrender.com" target="_blank" class="project-link">Play Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="project-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
+                <div class="project-animation pong-anim">
+                    <div class="pong-scene">
+                        <div class="synth-grid"></div>
+                        <div class="pong-board">
+            <div class="board-top"></div>
+            <div class="board-bottom"></div>
+            <div class="board-left"></div>
+            <div class="board-right"></div>
+                        </div>
+                        <div class="pong-scores">
+                            <div class="score">4</div>
+                            <div class="score">2</div>
+                        </div>
+                        <div class="pong-net-3d"></div>
+                        <div class="pong-paddle-3d paddle-left">
+                            <div class="pad-face front"></div><div class="pad-face back"></div><div class="pad-face top"></div>
+                        </div>
+                        <div class="pong-paddle-3d paddle-right">
+                            <div class="pad-face front"></div><div class="pad-face back"></div><div class="pad-face top"></div>
+                        </div>
+                        <div class="pong-ball-3d">
+                            <div class="ball-core"></div>
+                            <div class="ball-trail"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Neon Pong Arena</h3>
+                    <p>Browser Arcade Game with Leaderboard</p>
+                    <a href="https://neon-pong-arena.onrender.com" target="_blank" class="project-link">Play Now <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="project-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
+                <div class="project-animation student-anim">
+                    <div class="hud-scene">
+                        <div class="glass-pane pane-bg"></div>
+                        <div class="glass-pane pane-main">
+                            <div class="hud-sidebar">
+                                <div class="nav-item active"></div>
+                                <div class="nav-item"></div>
+                                <div class="nav-item"></div>
+                            </div>
+                            <div class="hud-content">
+                                <div class="hud-top-widgets">
+                                    <div class="hud-ring-chart">
+                                        <svg viewBox="0 0 36 36"><path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/><path class="circle-fill" stroke-dasharray="75, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/></svg>
+                                        <div class="ring-text">75%</div>
+                                    </div>
+                                    <div class="hud-bar-chart">
+                                        <div class="bar-col"><div class="bar-fill h-80"></div></div>
+                                        <div class="bar-col"><div class="bar-fill h-40"></div></div>
+                                        <div class="bar-col"><div class="bar-fill h-60"></div></div>
+                                        <div class="bar-col"><div class="bar-fill h-100"></div></div>
+                                    </div>
+                                </div>
+                                <div class="hud-data-grid">
+                                    <div class="data-row header"></div>
+                                    <div class="data-row animated-row r1"></div>
+                                    <div class="data-row animated-row r2"></div>
+                                    <div class="data-row animated-row r3"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass-pane pane-fg floating-widget"></div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Student Mgmt System</h3>
+                    <p>CRUD Web Application</p>
+                    <a href="https://student-management-flask-hfx3.onrender.com" target="_blank" class="project-link">View App <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="project-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
+                <div class="project-animation invoice-anim">
+                    <div class="printer-scene">
+                        <div class="printer-machine">
+                            <div class="printer-slot"></div>
+                            <div class="printer-lights">
+                                <div class="light green-light"></div>
+                                <div class="light blinking-light"></div>
+                            </div>
+                        </div>
+                        <div class="invoice-paper-3d">
+                            <div class="paper-header">
+                                <div class="mock-logo"></div>
+                                <div class="mock-title"></div>
+                            </div>
+                            <div class="paper-body">
+                                <div class="mock-line l1"></div>
+                                <div class="mock-line l2"></div>
+                                <div class="mock-line l3"></div>
+                                <div class="mock-summary"></div>
+                            </div>
+                            <div class="laser-scanner"></div>
+                            <div class="stamp-3d">
+                                <div class="stamp-text">PAID</div>
+                                <div class="stamp-particles"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>Invoice Tracker</h3>
+                    <p>Professional Invoice Management UI</p>
+                    <a href="https://invoice-tracker-8axv.onrender.com" target="_blank" class="project-link">View App <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="section wrapper">
+        <h2 class="section-title" data-text="Let's Connect">Let's Connect</h2>
+        <div class="contact-links">
+            <a href="mailto:uditverma151003@gmail.com" class="contact-item">
+                <div class="icon-wrapper"><i class="fa-solid fa-envelope"></i></div>
+                <span>Email Me</span>
+                <div class="detail">uditverma151003@gmail.com</div>
+            </a>
+            <a href="https://github.com/uditverma151003-hub" target="_blank" class="contact-item">
+                <div class="icon-wrapper"><i class="fa-brands fa-github"></i></div>
+                <span>GitHub</span>
+                <div class="detail">View Profile</div>
+            </a>
+            <a href="tel:+919389020292" class="contact-item">
+                <div class="icon-wrapper"><i class="fa-solid fa-phone"></i></div>
+                <span>Call Me</span>
+                <div class="detail">+91 9389020292</div>
+            </a>
+            <a href="https://wa.me/9389020292" target="_blank" class="contact-item whatsapp">
+                <div class="icon-wrapper"><i class="fa-brands fa-whatsapp"></i></div>
+                <span>WhatsApp</span>
+                <div class="detail">Chat with me</div>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Udit Verma <br/> Designed with <i class="fa-solid fa-heart neon-heart"></i> and lots of Coffee.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
