@@ -1021,6 +1021,135 @@ nav {
     95%, 100% { opacity: 0; }
 }
 
+/* =========================================
+   5. SMART FILE ORGANIZER - Terminal & Folders
+   ========================================= */
+.organizer-scene {
+    width: 100%; height: 100%;
+    position: relative;
+    perspective: 800px;
+    display: flex; justify-content: center; align-items: center;
+    gap: 25px;
+}
+
+.terminal-mockup {
+    width: 130px; height: 90px;
+    background: rgba(15, 16, 20, 0.9);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    border-radius: 6px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 229, 255, 0.1);
+    transform: rotateY(15deg) rotateX(5deg);
+    display: flex; flex-direction: column; overflow: hidden;
+    animation: floatTerminal 4s infinite ease-in-out alternate;
+    z-index: 2;
+}
+.terminal-header {
+    height: 14px; background: #2d2d2d; display: flex; align-items: center; gap: 4px; padding: 0 6px; border-bottom: 1px solid #444;
+}
+.term-dot { width: 5px; height: 5px; border-radius: 50%; }
+.term-dot.close { background: #ff5f56; }
+.term-dot.min { background: #ffbd2e; }
+.term-dot.max { background: #27c93f; }
+
+.terminal-body {
+    padding: 6px; display: flex; flex-direction: column; gap: 5px; font-family: 'Courier New', monospace; font-size: 7px; color: #a9b7c6;
+    height: 100%; position: relative;
+}
+.term-line { width: 0; overflow: hidden; white-space: nowrap; animation: termType 4s infinite steps(20); }
+.term-line.hl { color: var(--secondary); font-weight: bold; }
+.term-line.hl-green { color: #27c93f; animation-delay: 1s; }
+.term-line:nth-child(2) { animation-delay: 0.5s; }
+.term-line:nth-child(4) { color: var(--accent); padding-left: 4px; animation-delay: 1.5s; }
+.term-line:nth-child(5) { color: var(--primary); padding-left: 4px; animation-delay: 2s; }
+.term-cursor { width: 5px; height: 2px; background: var(--secondary); animation: termBlink 1s infinite; margin-top: 1px;}
+
+@keyframes termType { 0%, 5% { width: 0; opacity: 1; } 30%, 90% { width: 100%; opacity: 1; } 95%, 100% { width: 100%; opacity: 0; } }
+@keyframes termBlink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes floatTerminal { 0% { transform: translateZ(10px) rotateY(15deg) rotateX(5deg) translateY(0); } 100% { transform: translateZ(10px) rotateY(10deg) rotateX(10deg) translateY(-8px); } }
+
+.folder-scene {
+    width: 60px; height: 50px;
+    position: relative;
+    transform: rotateY(-15deg) rotateX(5deg);
+    animation: bounceFolder 2.5s infinite ease-in-out alternate;
+    z-index: 1;
+}
+.folder-back, .folder-front {
+    position: absolute; bottom: 0; left: 0;
+    width: 100%; border-radius: 3px;
+}
+.folder-back {
+    height: 40px; background: linear-gradient(135deg, #d4af37, #ffc107);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+}
+.folder-back::before {
+    content: ''; position: absolute; top: -5px; left: 0; width: 20px; height: 6px;
+    background: #d4af37; border-radius: 3px 3px 0 0;
+}
+.folder-paper {
+    position: absolute; bottom: 5px; left: 6px; width: 48px; height: 32px; background: #fff;
+    border-radius: 2px; box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+.folder-paper.p1 { transform: rotate(-5deg); animation: paperPop1 4s infinite ease-in-out; }
+.folder-paper.p2 { transform: rotate(5deg); animation: paperPop2 4s infinite ease-in-out; animation-delay: 0.8s;}
+.folder-front {
+    height: 28px; background: linear-gradient(135deg, #FFD700, #ffea70);
+    transform-origin: bottom;
+    transform: rotateX(-25deg);
+    display: flex; justify-content: center; align-items: center;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
+}
+.folder-front i { color: rgba(180, 150, 0, 0.5); font-size: 14px; }
+
+@keyframes bounceFolder { 0% { transform: rotateY(-15deg) rotateX(5deg) translateY(0); } 100% { transform: rotateY(-15deg) rotateX(5deg) translateY(-10px); } }
+@keyframes paperPop1 { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-10px) rotate(-10deg); } }
+@keyframes paperPop2 { 0%, 100% { transform: translateY(0) rotate(5deg); } 50% { transform: translateY(-8px) rotate(10deg); } }
+
+.flying-files {
+    position: absolute; width: 100%; height: 100%; top: 0; left: 0; pointer-events: none; z-index: 3;
+}
+.f-file {
+    position: absolute; width: 14px; height: 18px; border-radius: 2px;
+    background: #fff; opacity: 0; display: flex; justify-content: center; align-items: center;
+    font-size: 5px; color: #fff; font-weight: bold; font-family: var(--font-main);
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+.f-file.py { 
+    background: linear-gradient(135deg, #3776ab, #ffd343); 
+    animation: flyIn1 4s infinite cubic-bezier(0.25, 1, 0.5, 1); 
+}
+.f-file.img { 
+    background: var(--primary); 
+    animation: flyIn2 4s infinite cubic-bezier(0.25, 1, 0.5, 1); 
+    animation-delay: 1.3s; 
+}
+.f-file.doc { 
+    background: var(--secondary); 
+    animation: flyIn3 4s infinite cubic-bezier(0.25, 1, 0.5, 1); 
+    animation-delay: 2.6s; 
+}
+
+@keyframes flyIn1 {
+    0% { transform: translate(-100px, -80px) rotate(-30deg) scale(1.5); opacity: 0; }
+    20% { opacity: 1; transform: translate(-60px, -40px) rotate(-15deg) scale(1); }
+    80% { transform: translate(-10px, 0px) rotate(180deg) scale(0.5); opacity: 1; }
+    100% { transform: translate(-10px, 10px) rotate(180deg) scale(0); opacity: 0; }
+}
+@keyframes flyIn2 {
+    0% { transform: translate(40px, -100px) rotate(20deg) scale(1.5); opacity: 0; }
+    20% { opacity: 1; transform: translate(20px, -50px) rotate(40deg) scale(1); }
+    80% { transform: translate(0px, 0px) rotate(360deg) scale(0.5); opacity: 1; }
+    100% { transform: translate(0px, 10px) rotate(360deg) scale(0); opacity: 0; }
+}
+@keyframes flyIn3 {
+    0% { transform: translate(-80px, 80px) rotate(-45deg) scale(1.5); opacity: 0; }
+    20% { opacity: 1; transform: translate(-40px, 40px) rotate(-20deg) scale(1); }
+    80% { transform: translate(10px, -10px) rotate(-180deg) scale(0.5); opacity: 1; }
+    100% { transform: translate(10px, 0px) rotate(-180deg) scale(0); opacity: 0; }
+}
+
 .project-icon {
     font-size: 3rem;
     margin-bottom: 20px;
