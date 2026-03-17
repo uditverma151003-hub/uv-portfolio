@@ -232,6 +232,181 @@
                     <p>Automated File Organization & Analysis Tool</p>
                     <a href="https://smart-file-analyser.onrender.com" target="_blank" class="project-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
+            </div>            <div class="project-card" data-tilt data-tilt-glare data-tilt-max-glare="0.5">
+                <div class="project-animation tetris-anim">
+                    <div class="tetris-scene console-wrapper">
+                        <div class="gb-console">
+                            <div class="gb-screen-bezel">
+                                <div class="gb-screen-header">
+                                    <span class="gb-battery-light"></span>
+                                    <span class="gb-battery-text">BATTERY</span>
+                                    <span class="gb-dot-matrix">DOT MATRIX WITH STEREO SOUND</span>
+                                </div>
+                                <div class="arcade-screen gb-screen">
+                                    <div class="screen-flash"></div>
+                                    
+                                    <div class="t-sidebar">
+                                        <div class="t-box score-box">
+                                            <span class="t-label">SCORE</span>
+                                            <span class="t-val">84920</span>
+                                        </div>
+                                        <div class="t-box next-box">
+                                            <span class="t-label">NEXT</span>
+                                            <div class="t-next-grid">
+                                                <div class="t-cell static-i" style="top:0;left:0"></div>
+                                                <div class="t-cell static-i" style="top:0;left:10px"></div>
+                                                <div class="t-cell static-i" style="top:0;left:20px"></div>
+                                                <div class="t-cell static-i" style="top:0;left:30px"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="t-board">
+                                        <div class="t-grid-bg"></div>
+                                        
+                                        <!-- Real 4-line Tetris Setup -->
+                                        <div class="static-blocks">
+                                            <!-- Col 0 & 10 (Left Tower - Missing row 0, 1) -->
+                                            <div class="t-cell" style="top:150px; left:0px;"></div>
+                                            <div class="t-cell" style="top:140px; left:0px;"></div>
+                                            <div class="t-cell" style="top:150px; left:10px;"></div>
+                                            <div class="t-cell" style="top:140px; left:10px;"></div>
+                                            
+                                            <!-- Col 20 & 30 (Missing row 2, 3) -->
+                                            <div class="t-cell" style="top:170px; left:20px;"></div>
+                                            <div class="t-cell" style="top:160px; left:20px;"></div>
+                                            <div class="t-cell" style="top:170px; left:30px;"></div>
+                                            <div class="t-cell" style="top:160px; left:30px;"></div>
+
+                                            <!-- Col 40 (Full tower) -->
+                                            <div class="t-cell" style="top:170px; left:40px;"></div>
+                                            <div class="t-cell" style="top:160px; left:40px;"></div>
+                                            <div class="t-cell" style="top:150px; left:40px;"></div>
+                                            <div class="t-cell" style="top:140px; left:40px;"></div>
+
+                                            <!-- Col 50, 60, 70 (Missing top row(s) for J-block) -->
+                                            <div class="t-cell" style="top:170px; left:50px;"></div>
+                                            <div class="t-cell" style="top:160px; left:50px;"></div>
+                                            <div class="t-cell" style="top:150px; left:50px;"></div>
+                                            
+                                            <div class="t-cell" style="top:170px; left:60px;"></div>
+                                            <div class="t-cell" style="top:160px; left:60px;"></div>
+                                            <div class="t-cell" style="top:150px; left:60px;"></div>
+                                            
+                                            <div class="t-cell" style="top:170px; left:70px;"></div>
+                                            <div class="t-cell" style="top:160px; left:70px;"></div>
+
+                                            <!-- Col 80 (Full tower) -->
+                                            <div class="t-cell" style="top:170px; left:80px;"></div>
+                                            <div class="t-cell" style="top:160px; left:80px;"></div>
+                                            <div class="t-cell" style="top:150px; left:80px;"></div>
+                                            <div class="t-cell" style="top:140px; left:80px;"></div>
+                                        </div>
+
+                                        <!-- Piece 1: O-block -->
+                                        <div class="falling-piece piece-1">
+                                            <div class="t-cell" style="top:0; left:0px;"></div>
+                                            <div class="t-cell" style="top:0; left:10px;"></div>
+                                            <div class="t-cell" style="top:10px; left:0px;"></div>
+                                            <div class="t-cell" style="top:10px; left:10px;"></div>
+                                        </div>
+                                        <div class="ghost-piece ghost-1">
+                                            <div class="t-cell" style="top:0; left:0px;"></div>
+                                            <div class="t-cell" style="top:0; left:10px;"></div>
+                                            <div class="t-cell" style="top:10px; left:0px;"></div>
+                                            <div class="t-cell" style="top:10px; left:10px;"></div>
+                                        </div>
+
+                                        <!-- Piece 2: J-block (reversed) -->
+                                        <div class="falling-piece piece-2">
+                                            <div class="t-cell" style="top:0; left:0px;"></div>
+                                            <div class="t-cell" style="top:0; left:10px;"></div>
+                                            <div class="t-cell" style="top:0; left:20px;"></div>
+                                            <div class="t-cell" style="top:10px; left:20px;"></div>
+                                        </div>
+                                        <div class="ghost-piece ghost-2">
+                                            <div class="t-cell" style="top:0; left:0px;"></div>
+                                            <div class="t-cell" style="top:0; left:10px;"></div>
+                                            <div class="t-cell" style="top:0; left:20px;"></div>
+                                            <div class="t-cell" style="top:10px; left:20px;"></div>
+                                        </div>
+
+                                        <!-- Piece 3: I-block -->
+                                        <div class="falling-piece piece-3">
+                                            <div class="t-cell" style="top:0; left:0px;"></div>
+                                            <div class="t-cell" style="top:10px; left:0px;"></div>
+                                            <div class="t-cell" style="top:20px; left:0px;"></div>
+                                            <div class="t-cell" style="top:30px; left:0px;"></div>
+                                        </div>
+                                        <div class="ghost-piece ghost-3">
+                                            <div class="t-cell" style="top:0; left:0px;"></div>
+                                            <div class="t-cell" style="top:10px; left:0px;"></div>
+                                            <div class="t-cell" style="top:20px; left:0px;"></div>
+                                            <div class="t-cell" style="top:30px; left:0px;"></div>
+                                        </div>
+
+                                        <div class="blast-line"></div>
+                                    </div>
+                                    
+                                    <div class="t-sidebar right-sidebar">
+                                        <div class="t-box stats-box">
+                                            <span class="t-label">LEVEL</span>
+                                            <span class="t-val">9</span>
+                                            <span class="t-label">LINES</span>
+                                            <span class="t-val">102</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="gb-controls">
+                                <div class="gb-dpad">
+                                    <div class="gb-up"></div>
+                                    <div class="gb-right"></div>
+                                    <div class="gb-down"></div>
+                                    <div class="gb-left"></div>
+                                    <div class="gb-center"></div>
+                                </div>
+                                <div class="gb-action-buttons">
+                                    <div class="gb-btn-wrapper">
+                                        <div class="gb-btn gb-b"></div>
+                                        <span class="gb-btn-label">B</span>
+                                    </div>
+                                    <div class="gb-btn-wrapper">
+                                        <div class="gb-btn gb-a"></div>
+                                        <span class="gb-btn-label">A</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="gb-bottom-controls">
+                                <div class="gb-sys-buttons">
+                                    <div class="gb-sys-btn-group">
+                                        <div class="gb-sys-btn gb-select"></div>
+                                        <span>SELECT</span>
+                                    </div>
+                                    <div class="gb-sys-btn-group">
+                                        <div class="gb-sys-btn gb-start"></div>
+                                        <span>START</span>
+                                    </div>
+                                </div>
+                                <div class="gb-speaker">
+                                    <div class="gb-grill"></div>
+                                    <div class="gb-grill"></div>
+                                    <div class="gb-grill"></div>
+                                    <div class="gb-grill"></div>
+                                    <div class="gb-grill"></div>
+                                    <div class="gb-grill"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3>The Tetris</h3>
+                    <p>A full-stack arcade game with real-time leaderboard, chiptune audio, and full mobile support</p>
+                    <a href="#" target="_blank" class="project-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
             </div>
 
         </div>

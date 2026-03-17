@@ -1150,6 +1150,390 @@ nav {
     100% { transform: translate(10px, 0px) rotate(-180deg) scale(0); opacity: 0; }
 }
 
+/* =========================================
+   6. THE TETRIS - Classic Console UI
+   ========================================= */
+.tetris-scene {
+    width: 100%; height: 100%;
+    position: relative;
+    background: transparent; /* Match other cards */
+    display: flex; justify-content: center; align-items: center;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace; 
+}
+
+/* --- Console Body --- */
+.gb-console {
+    position: relative;
+    background: #c3c7c2; /* Classic off-white/gray plastic */
+    width: 320px;
+    height: 520px;
+    border-radius: 10px 10px 40px 10px;
+    box-shadow: 
+        inset -5px -5px 15px rgba(0,0,0,0.2),
+        inset 5px 5px 15px rgba(255,255,255,0.7),
+        10px 20px 30px rgba(0,0,0,0.6);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #a0a0a0;
+    transform: scale(0.52); /* Scale to fit 280px container perfectly */
+    transform-origin: center;
+}
+
+/* Grooves on the side of the console */
+.gb-console::before, .gb-console::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    height: 4px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    z-index: 0;
+}
+.gb-console::after { top: 30px; }
+
+
+/* --- Screen Bezel --- */
+.gb-screen-bezel {
+    background: #4a4a4a; /* Dark grey bezel */
+    width: 100%;
+    padding: 15px 25px 25px 25px;
+    border-radius: 10px 10px 30px 10px;
+    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.5), inset -2px -2px 5px rgba(255,255,255,0.2);
+    position: relative;
+    z-index: 10;
+    margin-bottom: 25px;
+    border: 2px solid #333;
+}
+
+.gb-screen-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #a0a0a0;
+    font-size: 8px;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 1px;
+}
+
+.gb-battery-light {
+    width: 8px; height: 8px;
+    background: #ff3333;
+    border-radius: 50%;
+    margin-right: 5px;
+    box-shadow: 0 0 4px #ff3333, inset 1px 1px 2px rgba(255,255,255,0.5);
+}
+
+.gb-battery-text {
+    margin-right: auto;
+}
+
+.gb-dot-matrix {
+    font-style: italic;
+    color: #999;
+}
+
+/* --- Inside the Screen --- */
+.gb-screen {
+    background: #8bac0f; /* Authentic Game Boy Green */
+    border: 3px solid #333;
+    border-radius: 4px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+    padding: 8px;
+    display: flex; gap: 10px; align-items: stretch;
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Sub-pixel Grid Overlay */
+.gb-screen::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: 
+        linear-gradient(rgba(15, 56, 15, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 56, 15, 0.1) 1px, transparent 1px);
+    background-size: 3px 3px;
+    pointer-events: none;
+    z-index: 20;
+}
+
+/* LCD Colors */
+.lcd-dark { color: #0f380f; }
+.lcd-med { color: #306230; }
+.lcd-light { color: #8bac0f; }
+.lcd-bg { color: #9bbc0f; }
+
+/* UI Panels */
+.t-sidebar { display: flex; flex-direction: column; justify-content: space-between; width: 60px; gap: 5px; z-index: 5; }
+.right-sidebar { width: 50px; }
+.t-box { 
+    display: flex; flex-direction: column; align-items: flex-end;
+}
+.t-label { color: #0f380f; font-size: 8px; font-weight: bold; font-family: 'Arial', sans-serif; margin-bottom: 2px;}
+.t-val { color: #0f380f; font-size: 14px; font-weight: bold; }
+
+/* The Board */
+.t-board { 
+    flex: 1; position: relative; 
+    border: 2px solid #0f380f; 
+    background: #8bac0f; 
+    overflow: hidden; 
+    z-index: 5;
+}
+
+/* Grid behind blocks */
+.t-grid-bg { 
+    position: absolute; inset: 0; 
+    background-image: 
+        linear-gradient(rgba(15, 56, 15, 0.2) 1px, transparent 1px), 
+        linear-gradient(90deg, rgba(15, 56, 15, 0.2) 1px, transparent 1px); 
+    background-size: 10px 10px; 
+}
+
+/* Classic Blocks - All same dark olive color, distinct borders */
+.t-cell {
+    position: absolute; width: 10px; height: 10px; box-sizing: border-box;
+    background: #0f380f;
+    border: 1px solid #8bac0f; /* Inner pixel separation */
+}
+
+/* Slightly different shades just to emulate different pieces if wanted, but generally GB was one color. We'll stick to mostly solid dark. */
+.static-t, .static-l, .static-z, .static-o, .static-i { 
+    background: #0f380f; 
+    box-shadow: inset 2px 2px 0 rgba(48, 98, 48, 0.5); /* Fake inner bevel reflection for blocks */
+}
+
+.t-next-grid { position: relative; width: 40px; height: 10px; margin: 4px 0; }
+
+/* Screen Flash for Line Clears */
+.screen-flash {
+    position: absolute; inset: 0; background: #9bbc0f; opacity: 0; z-index: 8; pointer-events: none;
+    animation: gbFlash 9s infinite;
+}
+@keyframes gbFlash {
+    0%, 93% { opacity: 0; }
+    94%, 96% { opacity: 0.8; }
+    97%, 100% { opacity: 0; }
+}
+
+/* Simple solid line blast */
+.blast-line {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 10px;
+    background: #0f380f;
+    opacity: 0;
+    transform: scaleX(0);
+    z-index: 5;
+    animation: lineClear 9s infinite;
+}
+@keyframes lineClear {
+    0%, 93% { opacity: 0; transform: scaleX(0); }
+    94%, 96% { opacity: 1; transform: scaleX(1); }
+    97%, 100% { opacity: 0; transform: scaleX(0); }
+}
+
+/* 3-Move Sequence */
+.falling-piece, .ghost-piece {
+    position: absolute;
+}
+.falling-piece { z-index: 2; }
+.ghost-piece { z-index: 1; }
+.ghost-piece .t-cell { 
+    background: transparent; border: 1px dotted #0f380f; 
+    box-shadow: none;
+}
+
+/* Piece 1: O-block */
+.piece-1 { top: -20px; left: 20px; animation: drop1 9s infinite; }
+.ghost-1 { top: 140px; left: 20px; animation: ghost1 9s infinite; }
+
+/* Piece 2: J-block (reversed) */
+.piece-2 { top: -20px; left: 50px; animation: drop2 9s infinite; }
+.ghost-2 { top: 140px; left: 50px; animation: ghost2 9s infinite; }
+
+/* Piece 3: I-block */
+.piece-3 { top: -40px; left: 90px; animation: drop3 9s infinite; }
+.ghost-3 { top: 140px; left: 90px; animation: ghost3 9s infinite; }
+
+@keyframes drop1 {
+    0% { transform: translateY(0); opacity: 0; }
+    1% { transform: translateY(0); opacity: 1; animation-timing-function: steps(16, end); }
+    16% { transform: translateY(160px); opacity: 1; animation-timing-function: step-end; }
+    94% { transform: translateY(160px); opacity: 1; }
+    95%, 100% { transform: translateY(160px); opacity: 0; }
+}
+@keyframes ghost1 { 0%, 15.9% { opacity: 0.5; } 16%, 100% { opacity: 0; } }
+
+@keyframes drop2 {
+    0%, 32% { transform: translateY(0); opacity: 0; }
+    33% { transform: translateY(0); opacity: 1; animation-timing-function: steps(16, end); }
+    48% { transform: translateY(160px); opacity: 1; animation-timing-function: step-end; }
+    94% { transform: translateY(160px); opacity: 1; }
+    95%, 100% { transform: translateY(160px); opacity: 0; }
+}
+@keyframes ghost2 { 0%, 32.9% { opacity: 0; } 33%, 47.9% { opacity: 0.5; } 48%, 100% { opacity: 0; } }
+
+@keyframes drop3 {
+    0%, 65% { transform: translateY(0); opacity: 0; }
+    66% { transform: translateY(0); opacity: 1; animation-timing-function: steps(18, end); }
+    84% { transform: translateY(180px); opacity: 1; animation-timing-function: step-end; }
+    94% { transform: translateY(180px); opacity: 1; }
+    95%, 100% { transform: translateY(180px); opacity: 0; }
+}
+@keyframes ghost3 { 0%, 65.9% { opacity: 0; } 66%, 83.9% { opacity: 0.5; } 84%, 100% { opacity: 0; } }
+
+/* Static board clearing */
+.static-blocks {
+    position: absolute; inset: 0;
+    animation: clearStatic 9s infinite;
+}
+@keyframes clearStatic {
+    0%, 94% { opacity: 1; }
+    95%, 98% { opacity: 0; }
+    99%, 100% { opacity: 1; }
+}
+
+/* --- Controls Section --- */
+.gb-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 10px;
+    margin-bottom: 20px;
+}
+
+/* D-Pad */
+.gb-dpad {
+    position: relative;
+    width: 90px;
+    height: 90px;
+}
+.gb-up, .gb-down, .gb-left, .gb-right, .gb-center {
+    position: absolute;
+    background: #111;
+    border-radius: 3px;
+    box-shadow: inset -2px -2px 5px rgba(0,0,0,0.8), inset 2px 2px 5px rgba(255,255,255,0.2), 2px 2px 5px rgba(0,0,0,0.5);
+}
+.gb-center { width: 30px; height: 30px; top: 30px; left: 30px; box-shadow: none; z-index: 2;}
+.gb-up { width: 30px; height: 36px; top: 0; left: 30px; border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+.gb-down { width: 30px; height: 36px; bottom: 0; left: 30px; border-top-left-radius: 0; border-top-right-radius: 0;}
+.gb-left { width: 36px; height: 30px; top: 30px; left: 0; border-top-right-radius: 0; border-bottom-right-radius: 0;}
+.gb-right { width: 36px; height: 30px; top: 30px; right: 0; border-top-left-radius: 0; border-bottom-left-radius: 0;}
+/* D-Pad texture */
+.gb-up::after, .gb-down::after, .gb-left::after, .gb-right::after {
+    content: ''; position: absolute; background: #222;
+}
+.gb-up::after { top: 5px; left: 5px; right: 5px; height: 10px; border-radius: 2px; }
+.gb-down::after { bottom: 5px; left: 5px; right: 5px; height: 10px; border-radius: 2px; }
+.gb-left::after { left: 5px; top: 5px; bottom: 5px; width: 10px; border-radius: 2px; }
+.gb-right::after { right: 5px; top: 5px; bottom: 5px; width: 10px; border-radius: 2px; }
+
+/* Action Buttons */
+.gb-action-buttons {
+    display: flex;
+    gap: 15px;
+    transform: rotate(-25deg);
+    margin-top: 10px;
+}
+.gb-btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gb-btn {
+    width: 40px;
+    height: 40px;
+    background: #900020; /* Deep crimson red */
+    border-radius: 50%;
+    box-shadow: 
+        inset -3px -3px 8px rgba(0,0,0,0.6),
+        inset 3px 3px 8px rgba(255,100,100,0.4),
+        2px 2px 5px rgba(0,0,0,0.5);
+    border: 2px solid #500010;
+}
+.gb-btn:active {
+    box-shadow: inset 3px 3px 8px rgba(0,0,0,0.8);
+    transform: translateY(2px);
+}
+.gb-btn-label {
+    margin-top: 5px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #555;
+    font-size: 10px;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
+}
+
+/* Bottom Controls (Start/Select & Speaker) */
+.gb-bottom-controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px;
+    margin-top: 10px;
+}
+
+.gb-sys-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+}
+.gb-sys-btn-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gb-sys-btn {
+    width: 40px;
+    height: 10px;
+    background: #333;
+    border-radius: 10px;
+    transform: rotate(-25deg);
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,0.8), 1px 1px 2px rgba(255,255,255,0.5);
+    margin-bottom: 5px;
+}
+.gb-sys-btn-group span {
+    font-family: 'Arial', sans-serif;
+    color: #555;
+    font-size: 8px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
+}
+
+/* Speaker Grills */
+.gb-speaker {
+    display: flex;
+    gap: 5px;
+    transform: rotate(-25deg);
+}
+.gb-grill {
+    width: 6px;
+    height: 40px;
+    background: #a0a0a0;
+    border-radius: 3px;
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,0.5), 1px 1px 0 rgba(255,255,255,0.7);
+}
+
+@keyframes matrixDrop {
+    0% { transform: translateY(0px); filter: brightness(1); }
+    15% { transform: translateY(30px); filter: brightness(1); }
+    30% { transform: translateY(60px); filter: brightness(1); }
+    45% { transform: translateY(90px); filter: brightness(1); }
+    60% { transform: translateY(120px); filter: brightness(1); }
+    73% { transform: translateY(150px); filter: brightness(1); }
+    75% { transform: translateY(150px); filter: brightness(3); } 
+    77% { transform: translateY(150px); filter: brightness(1); }
+    85% { transform: translateY(150px); opacity: 1; }
+    88% { transform: translateY(150px); opacity: 0; filter: brightness(1); }
+    100% { transform: translateY(0); opacity: 0; filter: brightness(1); }
+}
+
 .project-icon {
     font-size: 3rem;
     margin-bottom: 20px;
